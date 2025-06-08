@@ -8,7 +8,11 @@ function intToIp(int) {
 
 function maskToPrefix(maskStr) {
   const maskInt = ipToInt(maskStr);
-  return maskInt.toString(2).split('1').length - 1;
+  const binary = maskInt.toString(2).padStart(32, '0');
+  if (!/^1*0*$/.test(binary)) {
+    throw new Error('Invalid mask');
+  }
+  return binary.indexOf('0') === -1 ? 32 : binary.indexOf('0');
 }
 
 function prefixToMask(prefix) {
