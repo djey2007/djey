@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur de Netmask</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calculateur de Netmask</h1>
+  <div class="container">
+    <div class="form-group">
+      <label for="ip">Adresse IPv4 :</label>
+      <input type="text" id="ip" placeholder="ex. 192.168.1.10">
+    </div>
+    <div class="form-group">
+      <label for="mask">Masque (CIDR ou décimal) :</label>
+      <input type="text" id="mask" placeholder="ex. 24 ou 255.255.255.0">
+    </div>
+    <button id="calculate">Calculer</button>
+  </div>
+  <div id="results"></div>
+  <script src="script.js"></script>
+</body>
+</html>
