@@ -1,51 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simulateur de points du brevet</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>Simulateur de points du brevet</h1>
-  <div class="container">
-    <div class="form-group">
-      <label for="continuous">Points de contrôle continu (sur 400) :</label>
-      <input type="number" id="continuous" min="0" max="400" value="0">
+codex/créer-une-application-web-de-suivi-scolaire
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulateur de points du brevet</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Simulateur de points du brevet</h1>
+    <div class="container">
+      <div class="form-group">
+        <label for="continuous">Points de contrôle continu (sur 400) :</label>
+        <input type="number" id="continuous" min="0" max="400" value="0" />
+      </div>
+      <div class="form-group">
+        <label for="target">Objectif :</label>
+        <select id="target">
+          <option value="400">Admis</option>
+          <option value="480">Mention Assez bien</option>
+          <option value="560">Mention Bien</option>
+          <option value="640">Mention Très bien</option>
+        </select>
+      </div>
+      <h2>Notes prévues aux épreuves finales</h2>
+      <div class="form-group">
+        <label for="francais">Français (/20) :</label>
+        <input type="number" id="francais" min="0" max="20" value="0" />
+      </div>
+      <div class="form-group">
+        <label for="maths">Maths (/20) :</label>
+        <input type="number" id="maths" min="0" max="20" value="0" />
+      </div>
+      <div class="form-group">
+        <label for="hg">Histoire-Géo-EMC (/20) :</label>
+        <input type="number" id="hg" min="0" max="20" value="0" />
+      </div>
+      <div class="form-group">
+        <label for="sciences">Sciences (/20) :</label>
+        <input type="number" id="sciences" min="0" max="20" value="0" />
+      </div>
+      <div class="form-group">
+        <label for="oral">Épreuve orale (/20) :</label>
+        <input type="number" id="oral" min="0" max="20" value="0" />
+      </div>
+      <button id="calculate">Calculer</button>
     </div>
-    <div class="form-group">
-      <label for="target">Objectif :</label>
-      <select id="target">
-        <option value="400">Admis</option>
-        <option value="480">Mention Assez bien</option>
-        <option value="560">Mention Bien</option>
-        <option value="640">Mention Très bien</option>
-      </select>
-    </div>
-    <h2>Notes prévues aux épreuves finales</h2>
-    <div class="form-group">
-      <label for="francais">Français (/20) :</label>
-      <input type="number" id="francais" min="0" max="20" value="0">
-    </div>
-    <div class="form-group">
-      <label for="maths">Maths (/20) :</label>
-      <input type="number" id="maths" min="0" max="20" value="0">
-    </div>
-    <div class="form-group">
-      <label for="hg">Histoire-Géo-EMC (/20) :</label>
-      <input type="number" id="hg" min="0" max="20" value="0">
-    </div>
-    <div class="form-group">
-      <label for="sciences">Sciences (/20) :</label>
-      <input type="number" id="sciences" min="0" max="20" value="0">
-    </div>
-    <div class="form-group">
-      <label for="oral">Épreuve orale (/20) :</label>
-      <input type="number" id="oral" min="0" max="20" value="0">
-    </div>
-    <button id="calculate">Calculer</button>
-  </div>
-  <div id="results"></div>
-  <script src="script.js"></script>
-</body>
+    <progress id="progressBar" value="0" max="800"></progress>
+    <div id="results"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
