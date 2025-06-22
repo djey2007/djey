@@ -14,4 +14,6 @@ Cette petite application web calcule le total de points au Diplôme National du 
 
 ## Licence
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet est distribué sous la licence MIT.
+Consultez le fichier [LICENSE](LICENSE) pour les conditions complètes.
+
