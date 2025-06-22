@@ -1,8 +1,7 @@
-function noteToPoints(note, coefficient) {
+function noteToPoints(note, maxPoints) {
   const n = parseFloat(note);
   if (isNaN(n) || n < 0) return 0;
-codex/créer-une-application-web-de-suivi-scolaire
-  return (Math.min(n, 20) / 20) * coefficient;
+  return Math.min(n, maxPoints);
 }
 
 function calculate() {
@@ -31,21 +30,18 @@ function calculate() {
       list += `<li>${t.label} : il te manque ${(t.points - total).toFixed(1)} pts</li>`;
     }
   });
-codex/créer-une-application-web-de-suivi-scolaire
   list += "</ul>";
   const chosen = thresholds.find((t) => t.points === target);
   const missing = Math.max(target - total, 0);
   const avgNeeded = missing > 0 ? (missing / 400) * 20 : 0;
   if (missing > 0) {
-    list +=
-      `<p>Pour ${chosen.label}, il te manque ${missing.toFixed(1)} points ` +
+    list += `<p>Pour ${chosen.label}, il te manque ${missing.toFixed(1)} points ` +
       `soit une moyenne de ${avgNeeded.toFixed(1)}/20 aux épreuves finales.</p>`;
   } else {
     list += `<p>${chosen.label} atteinte avec ces notes !</p>`;
   }
   document.getElementById("results").innerHTML = list;
   document.getElementById("progressBar").value = total;
-=
 }
 
 document.getElementById("calculate").addEventListener("click", calculate);
