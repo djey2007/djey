@@ -1,20 +1,29 @@
-function noteToPoints(note, coefficient) {
-  const n = parseFloat(note);
+function noteToPoints(value, max) {
+  const n = parseFloat(value);
   if (isNaN(n) || n < 0) return 0;
-codex/créer-une-application-web-de-suivi-scolaire
-  return (Math.min(n, 20) / 20) * coefficient;
+  return Math.min(n, max);
 }
+
+const exams = [
+  { id: "francais", label: "Français", max: 100 },
+  { id: "maths", label: "Maths", max: 100 },
+  { id: "hg", label: "Histoire-Géo", max: 50 },
+  { id: "sciences", label: "Sciences", max: 50 },
+  { id: "oral", label: "Oral", max: 100 },
+];
 
 function calculate() {
   const cc = parseInt(document.getElementById("continuous").value, 10) || 0;
   const target = parseInt(document.getElementById("target").value, 10) || 400;
-  const francais = noteToPoints(document.getElementById("francais").value, 100);
-  const maths = noteToPoints(document.getElementById("maths").value, 100);
-  const hg = noteToPoints(document.getElementById("hg").value, 50);
-  const sciences = noteToPoints(document.getElementById("sciences").value, 50);
-  const oral = noteToPoints(document.getElementById("oral").value, 100);
 
-  const total = cc + francais + maths + hg + sciences + oral;
+  const results = exams.map((e) => {
+    const input = document.getElementById(e.id);
+    return { ...e, points: noteToPoints(input.value, e.max) };
+  });
+
+  const examsTotal = results.reduce((sum, r) => sum + r.points, 0);
+  const total = cc + examsTotal;
+
   const thresholds = [
     { label: "Admis", points: 400 },
     { label: "Mention Assez bien", points: 480 },
@@ -31,7 +40,11 @@ function calculate() {
       list += `<li>${t.label} : il te manque ${(t.points - total).toFixed(1)} pts</li>`;
     }
   });
-codex/créer-une-application-web-de-suivi-scolaire
+  list += "</ul>";
+  list += "<ul>";
+  results.forEach((r) => {
+    list += `<li>${r.label} : ${r.points.toFixed(1)} / ${r.max}</li>`;
+  });
   list += "</ul>";
   const chosen = thresholds.find((t) => t.points === target);
   const missing = Math.max(target - total, 0);
@@ -45,7 +58,6 @@ codex/créer-une-application-web-de-suivi-scolaire
   }
   document.getElementById("results").innerHTML = list;
   document.getElementById("progressBar").value = total;
-=
 }
 
 document.getElementById("calculate").addEventListener("click", calculate);
