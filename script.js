@@ -1,7 +1,7 @@
-function noteToPoints(note, coefficient) {
+function noteToPoints(note, maxPoints) {
   const n = parseFloat(note);
   if (isNaN(n) || n < 0) return 0;
-  return (Math.min(n, 20) / 20) * coefficient;
+  return Math.min(n, maxPoints);
 }
 
 function calculate() {
