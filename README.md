@@ -1,17 +1,10 @@
-# Calculateur de Netmask
+# Simulateur de points du Brevet
 
-Une petite application web pour calculer les informations réseau à partir d'une adresse IP et d'un masque réseau.
+Cette petite application web calcule le total de points au Diplôme National du Brevet en combinant les points de contrôle continu et les notes prévues aux épreuves finales.
 
-## Fonctionnalités
+## Utilisation
 
-- Calcul de l'adresse réseau
-- Calcul de l'adresse de broadcast
-- Plage d'hôtes disponibles
-- Nombre d'hôtes utilisables
-- Conversion CIDR ↔ masque décimal
-
-## Usage
-
-1. Ouvrez `index.html` dans votre navigateur (pas besoin de serveur web).
-2. Entrez une adresse IPv4 et un masque réseau (soit en notation CIDR, soit en masque décimal).
-3. Cliquez sur **Calculer** pour afficher les résultats.
+1. Ouvrez `index.html` dans votre navigateur.
+2. Renseignez vos points de contrôle continu (sur 400) ainsi que vos notes sur 20 pour chaque épreuve finale.
+3. Sélectionnez l'objectif (admission ou mention) dans la liste déroulante.
+4. Cliquez sur **Calculer** pour connaître votre total et les points restants pour chaque mention. L'application indique aussi la moyenne nécessaire pour atteindre l'objectif choisi.
