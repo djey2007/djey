@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulateur de points du brevet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,6 +14,7 @@
         <label for="continuous">Points de contrôle continu (sur 400) :</label>
         <input type="number" id="continuous" min="0" max="400" value="0" />
       </div>
+
       <div class="form-group">
         <label for="target">Objectif :</label>
         <select id="target">
@@ -22,7 +24,9 @@
           <option value="640">Mention Très bien</option>
         </select>
       </div>
+
       <h2>Points obtenus aux épreuves finales</h2>
+
       <div class="form-group">
         <label for="francais">Français (/100) :</label>
         <input type="number" id="francais" min="0" max="100" value="0" />
@@ -43,10 +47,13 @@
         <label for="oral">Épreuve orale (/100) :</label>
         <input type="number" id="oral" min="0" max="100" value="0" />
       </div>
+
       <button id="calculate">Calculer</button>
     </div>
+
     <progress id="progressBar" value="0" max="800"></progress>
     <div id="results"></div>
+
     <script src="script.js"></script>
   </body>
 </html>
