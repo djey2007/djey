@@ -1,8 +1,6 @@
 function noteToPoints(note, maxPoints) {
-  const n = parseFloat(note);
-  if (isNaN(n) || n < 0) return 0;
-  // On borne la note à 20/20 puis on la ramène à l’échelle maxPoints (100 ou 50)
-  return (Math.min(n, 20) / 20) * maxPoints;
+  // On utilise directement les points entrés, bornés à maxPoints
+  return Math.min(parseFloat(note) || 0, maxPoints);
 }
 
 function calculate() {
@@ -60,7 +58,9 @@ function calculate() {
 }
 
 document.getElementById("calculate").addEventListener("click", calculate);
+
 ["continuous", "francais", "maths", "hg", "sciences", "oral", "target"]
   .forEach(id => document.getElementById(id).addEventListener("input", calculate));
 
 window.addEventListener("DOMContentLoaded", calculate);
+

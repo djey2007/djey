@@ -22,6 +22,10 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+.form-group {
+  margin-bottom: 1rem;
+}
+
 label {
   font-weight: 600;
   margin-top: 1rem;
@@ -86,4 +90,22 @@ progress::-webkit-progress-value {
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles tableau facultatifs pour plus tard */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 6px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+  text-align: left;
 }
